@@ -27,6 +27,9 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 app.get('/', function(req, res){
     res.render('index.ejs');
 });
+var api = express.Router();
+require('./server/routes/api')(api);
+app.use('/api', api);
 
 //make our app listen for incoming requests on the port assigned above
 app.listen(port, function(){
