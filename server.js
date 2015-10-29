@@ -17,6 +17,10 @@ mongoose.connect(configDB.url);
 //get our port # from c 9's enviromental variable: PORT
 var port = process.env.PORT;
 
+//body-parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 //Set our view engine to EJS, and set directory our views will be stored in
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'client', 'views'));
